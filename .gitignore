@@ -58,3 +58,4 @@ terraform/*.tfvars
 
 # AWS (future phases)
 .aws/terraform/terraform
+terraform/terraform
