@@ -57,4 +57,4 @@ terraform/*.tfvars
 .kube/
 
 # AWS (future phases)
-.aws/
+.aws/terraform/terraform
