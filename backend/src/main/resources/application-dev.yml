@@ -1,0 +1,39 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/event-platform-dev
+
+  security:
+    jwt:
+      access-secret: dev-access-secret-key-minimum-32-characters-long
+      refresh-secret: dev-refresh-secret-key-minimum-32-characters-long
+      access-expiry: 15m
+      refresh-expiry: 7d
+
+  cors:
+    allowed-origins: http://localhost:3000
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  health:
+    mongo:
+      enabled: true
+
+logging:
+  level:
+    com.eventplatform: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.data.mongodb: DEBUG

@@ -1,0 +1,9 @@
+# Trivy ignore file
+# Format: CVE-ID or package name
+
+# Known acceptable vulnerabilities (document why each is ignored)
+# Example:
+# CVE-2023-12345  # Low severity, no fix available yet
+
+# Ignore low/medium severity in dev dependencies
+# These are typically not exploitable in production

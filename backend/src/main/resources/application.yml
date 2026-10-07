@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: event-platform-backend
+
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/event-platform}
+      auto-index-creation: true
+
+  security:
+    jwt:
+      access-secret: ${JWT_ACCESS_SECRET:}
+      refresh-secret: ${JWT_REFRESH_SECRET:}
+      access-expiry: ${JWT_ACCESS_EXPIRY:15m}
+      refresh-expiry: ${JWT_REFRESH_EXPIRY:7d}
+
+  cors:
+    allowed-origins: ${CORS_ORIGIN:http://localhost:3000}
+
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+      probes:
+        enabled: true
+  health:
+    mongo:
+      enabled: true
+
+logging:
+  level:
+    com.eventplatform: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.data.mongodb: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
